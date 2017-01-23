@@ -1,0 +1,35 @@
+Avanzamento lavori di ricostruzione
+
+Questo tracciato elenca gli eventi significativi nell'intervento di ricostruzione (quando avvenuti), tramite un identificativo univoco dell'evento (numero dell'istanza MUDE) e la data dell'evento (di accettazione di tale istanza da parte del Comune).
+
+Questi dati riassumono le informazioni desumibili dalla piattaforma MUDE riguardo le istanze fatte dal professionista e formalmente accettate dal Comune all'interno del medesimo fascicolo informatico.
+
+I dati sono codificati in formato Comma Separated Value (CSV), separati dal carattere "|" per coerenza con gli altri data set del medesimo gruppo.
+
+
+I campi del file sono i seguenti:
+
+PRENOTAZIONE_MUDE: numero MUDE della istanza di prenotazione
+PRENOTAZIONE_DATA: data di accettazione della istanza di prenotazione
+CONFERMA_MUDE: numero MUDE della istanza di conferma di prenotazione
+CONFERMA_DATA: data di accettazione della istanza di conferma di prenotazione
+RICHIESTA_MUDE: numero MUDE della istanza di richiesta di contributo (RCR)
+RICHIESTA_DATA: data di accettazione della istanza di richiesta di contributo 
+LIVELLO_OPERATIVO: livello di danno asseverato dal professionista sulla base delle lesioni all'edificio (B/C, E0, E1, E2, E3)
+TIPO_INTERVENTO: specifica se si tratta di intervento richiesto autonomamente dal cittadino (DIRETTO) oppure se parte del piano di ricostruzione del Comune (ORGANIZZATO)
+CONCESSIONE_CUP: numero CUP che rappresenta la decisione di assegnazione dei contributi
+CONCESSIONE_DATA: data di generazione del codice CUP
+SAL_ZERO_MUDE: numero MUDE della istanza di richiesta di pagamento delle spese di progettazione e/o anticipi (SAL ZERO)
+SAL_ZERO_DATA: data di accettazione della istanza di richiesta di pagamento del SAL ZERO
+SAL_INIZIALE_MUDE: numero MUDE della istanza di richiesta di pagamento del primo avanzamento lavori
+SAL_INIZIALE_DATA: data di accettazione della istanza di richiesta di pagamento del primo avanzamento lavori
+SAL_INT_1_MUDE: numero MUDE della istanza di richiesta di pagamento del secondo avanzamento lavori (INTERMEDIO 1)
+SAL_INT_1_DATA: data di accettazione della istanza di richiesta di pagamento del secondo avanzamento lavori (INTERMEDIO 1)
+SAL_INT_2_MUDE: numero MUDE della istanza di richiesta di pagamento del terzo avanzamento lavori (INTERMEDIO 2)
+SAL_INT_2_DATA: data di accettazione della istanza di richiesta di pagamento del terzo avanzamento lavori (INTERMEDIO 2)
+SAL_FINALE_MUDE: numero MUDE della istanza di richiesta di pagamento dell'ultimo avanzamento lavori
+SAL_FINALE_DATA: data di accettazione della istanza di richiesta di pagamento dell'ultimo avanzamento lavori
+FINE_LAVORI_DATA: data di chiusura del cantiere (fine lavori) così come dichiarata nel SAL FINALE dal professionista
+*GEO_LON: longitudine in WGS84 dell'intervento desunto dal servizio cartografico regionale
+*GEO_LAT: latitudine in WGS84 dell'intervento desunto dal servizio cartografico regionale
+*GEO_CON: grado di confidenza (in %) sulla localizzazione dell'edificio su cartografia regionale

@@ -1,0 +1,26 @@
+Pagamenti
+
+Questo tracciato elenca i pagamenti autorizzati dalla pubblica amministrazione a seguito di ogni stato di avanzamento lavori per gli interventi di ricostruzione a seguito del sisma del 20 e 29 maggio 2012.
+
+Questi dati riassumono le informazioni tracciate automaticamente dal "focal point" istituito presso la Presidenza del Consiglio dei Ministri nel circuito interbancario europeo SEPA (Single Euro Payments Area) in seguito ad ogni stato di avanzamento lavori dichiarato dal professionista ed autorizzato dal Comune.
+
+Per questa ragione, la titolarità del dato deve essere estesa parimenti a Regione Emilia-Romagna anche al Dipartimento per la programmazione e il coordinamento della politica economica della Presidenza del Consiglio del Ministri (DIPE).
+
+Questo elenco tiene conto solo parzialmente dei pagamenti effettuati antecedentemente all'entrata in vigore del circuito SEPA (obbligatorio dal 1 febbraio 2014) ma in compenso tiene conto di eventuali varianti in corso d'opera e conseguenti rideterminazioni dei contributi e potrebbe quindi contenere incongruenze con quando pubblicato negli altri dataset sul terremoto.
+
+I dati sono codificati in formato Comma Separated Value (CSV), separati dal carattere "|" per coerenza con gli altri data set del medesimo gruppo.
+
+
+I campi del file sono i seguenti:
+
+RICHIESTA_MUDE: numero MUDE della istanza di richiesta di contributo (RCR)
+CONCESSIONE_CUP: numero CUP che rappresenta la decisione di assegnazione dei contributi
+SAL_MUDE: numero MUDE della istanza di richiesta di pagamento
+COMUNE_ISTAT: codice istat a 6 cifre costituito dalla unione del codice ISTAT della provincia seguito dal codice ISTAT del comune
+COMUNE_DENOMINAZIONE: denominazione del comune su cui insiste il fabbricato	
+CAUSALE_MGO: identificativo della tipologia di soggetto liquidato (00 oppure 3B impresa, 18 oppure 3A professionista, 99 oppure 3D beneficiario, 98 oppure 3C amministratore)
+IMPORTO: importo liquidato in euro
+DATA_VALUTA: data valuta del pagamento effettuato
+BANCA: codice ABI dell'istituto di credito che ha effettuato il bonifico su ordine dell'ente pubblico
+
+

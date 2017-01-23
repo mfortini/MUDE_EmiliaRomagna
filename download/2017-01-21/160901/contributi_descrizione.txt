@@ -1,0 +1,33 @@
+Contributi assegnati
+
+Questo tracciato descrive i contributi assegnati dai Sindaci per la ricostruzione a seguito del sisma del 20 e 29 maggio 2012 sulla base delle Ordinanze del Commissario n. 29/2012, n. 51/2012, n. 86/2012, n. 60/2013 e n. 66/2013 e s.m.i.
+
+Tale informazione vuole assolvere gli obblighi di cui al D.Lgs 33/2013 e riassume le informazioni comunicate dal professionista al comune e la decisione del Comune di assegnare i contributi tramite ordinanza.
+Questo elenco non tiene conto di eventuali variazioni del contributo in diminuzione od aumento a seguito di varianti in corso d'opera, ma rappresenta solamente il contributo inizialmente assegnato e comunicato alla Presidenza del Consiglio dei Ministri dal Comune al momento della generazione del codice CUP.
+
+In altre parole, questi dati sono un sottoinsieme dei dati desumibili dal portale http://cupweb.tesoro.it/ relativo esclusivamente agli interventi riconducibili dalle ordinanze del commissario sopra elencate.
+
+Per questa ragione, la titolarità del dato deve essere estesa parimenti a Regione Emilia-Romagna anche al Dipartimento per la programmazione e il coordinamento della politica economica della Presidenza del Consiglio del Ministri (DIPE).
+
+I dati sono codificati in formato Comma Separated Value (CSV), separati dal carattere "|" in quanto il carattere ',' è stato adottato come separatore delle migliaia di euro relativamente al costo dell'opera e del contributo assegnato e talvolta altri caratteri come ';' o '/' sono presenti nel campo indirizzo.
+
+
+I campi del file sono i seguenti:
+
+ID_PROGETTO: identificativo univoco della istanza di richiesta di contributi per la ricostruzione (numero MUDE)
+CUP_CODICE: codice unico di progetto generato dal comune al moemnto della decisione di assegnare il contributo	
+CUP_DATA: data di generazione del codice CUP; è il momento nel quale l'amministrazione comunale decreta il completamento della attività istruttoria sul progetto presentato e decide di assegnare il contributo; coincide o precede di poco la data della firma della ordinanza di assegnazione del contributo da parte del sindaco
+COMUNE_ISTAT: codice istat a 6 cifre costituito dalla unione del codice ISTAT della provincia seguito dal codice ISTAT del comune
+COMUNE_DENOMINAZIONE: denominazione del comune su cui insiste il fabbricato	
+VIA_E_CIVICO: denominazione della via del fabbricato e civico del fabbricato (identificativo toponomastico)
+COSTO_INTERVENTO: costo dell'intervento dichiarato dal professinista in seguito alla attività istruttoria comunale espresso in migliaia di euro
+CONTRIBUTO: contributo assegnato dal sindaco del comune a seguito della prima istrutturia comunale espresso in migliaia di euro
+DESC_STRUM_PROG: identificazione della norma che ha autorizzato il finanziamento (ordinanza commissariale 29, 51 od 86 del 2012)
+BENEFICIARIO_NOME: cognome e nome della persona fisica che ha richiesto il contributo
+ALTRE_INFORMAZIONI: eventuale denominazione e partita IVA del condominio od impresa agricola se la richiesta è stata effettuata dal beneficiario in nome e per conto di una soggettività fiscale
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+Soggetti attivi della ricostruzione
+
+Questo tracciato elenca i soggetti attivi impegnati nella ricostruzione a seguito del sisma del 20 e 29 maggio 2012, il ruolo assunto all'interno del progetto presentato per la richiesta di contributi sulla base delle Ordinanze del Commissario n. 29/2012, n. 51/2012 ed n. 86/2012, e il contributo pro-quota assegnato dal Comune per lo svolgimento degli incarichi di progetto.
+
+Questi dati riassumono le informazioni sui diversi soggetti comunicate dal professionista al Comune al primo stato di avanzamento lavori utile, incluso il contributo assegnato pro-quota.
+Questo elenco non tiene conto di eventuali variazioni dei soggetti in seguito a sostituzione di alcuno degli attori durante la ricostruzione (sia essa impresa assuntrice dei lavori, progettista od altro soggetto) e non comprende eventuali subappaltatori della impresa assuntrice dei lavori o del professionista coordinatore dell'intervento, così come non tiene conto di eventuali varianti in corso d'opera e conseguenti rideterminazioni dei contributi e potrebbe quindi contenere errori o incongruenze con quando pubblicato negli altri dataset sul terremoto.
+
+I dati sono codificati in formato Comma Separated Value (CSV), separati dal carattere "|" in quanto il carattere ',' è stato adottato come separatore delle migliaia di euro relativamente al costo dell'opera e del contributo assegnato e talvolta altri caratteri come ';' o '/' sono presenti nel campo indirizzo.
+
+
+I campi del file sono i seguenti:
+
+ID_ISTANZA: identificativo univoco della istanza di "stato di avanzamento lavori" (numero MUDE)
+ID_PROGETTO: identificativo univoco della istanza di richiesta di contributi per la ricostruzione (numero MUDE)
+CUP_CODICE: codice unico di progetto generato dal comune al moemnto della decisione di assegnare il contributo	
+BENEFICIARIO_NOME: cognome e nome del richiedente il contributo
+BENEFICIARIO_CF: Codice Fiscale del richiedente il contributo
+RAPPRESENTATO_RAGIONE_SOCIALE: ragione sociale del richiedente il contributo se persona giuridica
+RAPPRESENTATO_PIVA: Partita IVA del richiedente il contributo se persona giuridica
+IMPRESA_NOME: nome della impresa assuntrice dei lavori se impresa individuale
+IMPRESA_CF: codice fiscale della impresa assuntrice dei lavori se impresa individuale
+IMPRESA_RAGIONE_SOCIALE: ragione sociale della impresa assuntrice dei lavori
+IMPRESA_PIVA: partita IVA della impresa assuntrice dei lavori
+IMPRESA_COMUNE: provincia sede dell'impresa esecutrice
+PROGETTISTA_NOME: cognome e nome del progettista architettonico (nonchè coordinatore dell'intervento)
+PROGETTISTA_PIVA: codice fiscale del progettista architettonico
+STRUTTURISTA_NOME: cognome e nome del progettista delle strutture 
+STRUTTURISTA_PIVA: codice fiscale del progettista delle strutture
+PROG_IMP_ELETT_NOME: cognome e nome del progettista degli impianti elettrici
+PROG_IMP_ELETT_PIVA: codice fiscale del progettista degli impianti elettrici
+PROG_IMP_TERM_NOME: cognome e nome del progettista degli impianti termici
+PROG_IMP_TERM_PIVA: codice fiscale del progettista degli impianti termici
+COORD_SIC_PROG_NOME: cognome e nome del coordinatore per la sicurezza in fase di progettazione
+COORD_SIC_PROG_PIVA: codice fiscale del coordinatore per la sicurezza in fase di progettazione
+COORD_SIC_PROG_NOME: cognome e nome del coordinatore per la sicurezza in fase di esecuzione
+COORD_SIC_PROG_PIVA: codice fiscale del coordinatore per la sicurezza in fase di esecuzione
+DIR_LAV_NOME: cognome e nome del direttore dei lavori architettonici
+DIR_LAV_PIVA: codice fiscale del direttore dei lavori architettonici
+DIR_LAV_STRUT_NOME: cognome e nome del direttore dei lavori delle strutture
+DIR_LAV_STRUT_PIVA: codice fiscale del direttore dei lavori delle strutture
+COLLAUDATORE_NOME: cognome e nome del collaudatore delle opere
+COLLAUDATORE_PIVA: codice fiscale del collaudatore delle opere
+CERT_ENERG_NOME: cognome e nome del certificatore energetico
+CERT_ENERG_PIVA: codice fiscale del certificatore energetico
+GEOLOGO_NOME: cognome e nome del geologo estensore della relazione geologica
+GEOLOGO_PIVA: codice fiscale del certificatore energetico
+
+
