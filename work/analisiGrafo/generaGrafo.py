@@ -2,7 +2,7 @@ import igraph as G
 import pandas as pd
 import numpy as np
 import os
-from progressbar import ProgressBar
+#from progressbar import ProgressBar
 from matplotlib import pyplot as plt
 
 # avanzamento-lavori_dati_2016-09-01.csv
@@ -46,110 +46,81 @@ g.vs['denom']=g.vs['name']
 
 from IPython import embed; embed()
 
-USA_NOME_BENEFICIARIO=False
+def addEdge(g,_from,_to,_denom,_type,n_attribs={},e_attribs={}):
+    if len(g.vs(name=_to))==0:
+        g.add_vertex(_to,denom=_denom,type=_type,**n_attribs)
+    g.add_edge(_from,_to,rel=_type,**e_attribs)
 
-pb=ProgressBar(maxval=len(soggDescr))
-pb.start()
+    return g
+
+
+#pb=ProgressBar(maxval=len(soggDescr))
+#pb.start()
 for (i,d) in enumerate(soggDescr.iterrows()):
-    pb.update(i)
+    #pb.update(i)
     sd=d[1]
-    if USA_NOME_BENEFICIARIO:
-        if len(g.vs(name=sd.BENEFICIARIO_NOME_x))==0:
-            g.add_vertex(sd.BENEFICIARIO_NOME_x,denom=sd.BENEFICIARIO_NOME_x)
-        g.add_edge(sd.COMUNE_DENOMINAZIONE,sd.BENEFICIARIO_NOME_x,rel="beneficiario",id_progetto=sd.ID_PROGETTO_x,codice_cup=sd.CODICE_CUP)
+    CF=sd.BENEFICIARIO_CF.strip()
+    g=addEdge(g,sd.COMUNE_DENOMINAZIONE.strip(),CF,sd.BENEFICIARIO_NOME_x,"beneficiario",e_attribs={"id_progetto":sd.ID_PROGETTO_x,"codice_cup":sd.CODICE_CUP})
 
-        if len(g.vs(name=sd.PROGETTISTA_PIVA))==0:
-            g.add_vertex(sd.PROGETTISTA_PIVA,denom=sd.PROGETTISTA_NOME)
-        g.add_edge(sd.BENEFICIARIO_NOME_x,sd.PROGETTISTA_PIVA,rel="progettista")
-    else:
-        CF=sd.BENEFICIARIO_CF.strip()
-        if len(g.vs(name=CF))==0:
-            g.add_vertex(CF,denom=sd.BENEFICIARIO_NOME_x)
-        g.add_edge(sd.COMUNE_DENOMINAZIONE.strip(),CF,rel="beneficiario",id_progetto=sd.ID_PROGETTO_x,codice_cup=sd.CODICE_CUP)
-
-        PIVA=sd.PROGETTISTA_PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.PROGETTISTA_NOME)
-        g.add_edge(sd.BENEFICIARIO_CF,PIVA,rel="progettista")
+    PROG_PIVA=sd.PROGETTISTA_PIVA.strip()
+    g=addEdge(g,CF,PROG_PIVA,sd.PROGETTISTA_NOME,"progettista")
 
     PIVA=sd.IMPRESA_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.IMPRESA_NOME,comune=sd.IMPRESA_COMUNE)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="impresa")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.IMPRESA_NOME,"impresa",n_attribs={"comune":sd.IMPRESA_COMUNE})
 
     PIVA=sd.STRUTTURISTA_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.STRUTTURISTA_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="strutturista")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.STRUTTURISTA_NOME,"strutturista")
 
     PIVA=sd.PROG_IMP_ELETT_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.PROG_IMP_ELETT_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="progImpElett")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.PROG_IMP_ELETT_NOME,"progImpElett")
 
     PIVA=sd.PROG_IMP_TERM_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.PROG_IMP_TERM_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="progImpTerm")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.PROG_IMP_TERM_NOME,"progImpTerm")
 
     PIVA=sd.COORD_SIC_PROG_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.COORD_SIC_PROG_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="coordSicProg")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.COORD_SIC_PROG_NOME,"progSicProg")
 
     PIVA=sd.COORD_SIC_ESEC_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.COORD_SIC_ESEC_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="coordSicEsec")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.COORD_SIC_ESEC_NOME,"progSicEsec")
 
     PIVA=sd.DIR_LAV_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.DIR_LAV_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="dirLav")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.DIR_LAV_NOME,"dirLav")
 
     PIVA=sd.DIR_LAV_STRUTT_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.DIR_LAV_STRUTT_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="dirLavStrutt")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.DIR_LAV_STRUTT_NOME,"dirLavStrutt")
 
     PIVA=sd.COLLAUDATORE_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.COLLAUDATORE_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="collaudatore")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.COLLAUDATORE_NOME,"collaudatore")
 
     PIVA=sd.CERT_ENERG_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.CERT_ENERG_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="certEnerg")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.CERT_ENERG_NOME,"certEnerg")
 
     PIVA=sd.GEOLOGO_PIVA
     if not pd.isnull(PIVA):
         PIVA=PIVA.strip()
-        if len(g.vs(name=PIVA))==0:
-            g.add_vertex(PIVA,denom=sd.GEOLOGO_NOME)
-        g.add_edge(sd.PROGETTISTA_PIVA.strip(),PIVA,rel="geologo")
+        g=addEdge(g,PROG_PIVA,PIVA,sd.GEOLOGO_NOME,"geologo")
 
-pb.finish()
+#pb.finish()
 
 g.write_graphml('soggetti.graphml')
 g.write_pickle('soggetti.pickle')
